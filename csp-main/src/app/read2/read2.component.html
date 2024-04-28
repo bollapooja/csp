@@ -1,0 +1,103 @@
+<p>read2 works!</p>
+<!--
+
+  <div class="par">
+    <input type="text" [(ngModel)]="User.crop_type" name="crop_type" #crop_type="ngModel" required ngModel>&nbsp;
+    <br/>
+    <button type="submit"  class="btn btn-success my-2" (click)="Read()" >Read</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </div>
+    <div *ngIf="canShowData">
+    
+        <hr> 
+        
+        <table >
+            <tr>
+              <th colspan="10" style="text-align: center;"><h4>Soil id with soil types</h4></th>
+            </tr>
+            <tr>
+              <td colspan="4">crop_type</td>
+              <td colspan="6">{{User.crop_type}}</td>
+            </tr>
+            <tr>
+              <td colspan="4">market_demand</td>
+              <td colspan="6">{{User.market_demand}}</td>
+            </tr>
+            <tr>
+                <td colspan="4">cost_management</td>
+                <td colspan="6">{{User.cost_management}}</td>
+              </tr>
+              <tr>
+                <td colspan="4">climate</td>
+                <td colspan="6">{{User.climate}}</td>
+              </tr>
+              <tr>
+                <td colspan="4">profit</td>
+                <td colspan="6">{{User.profit}}</td>
+              </tr>
+              
+          </table>
+        -->
+               
+<div class="d-block mx-auto w-50">
+  <label for="crop_type">croptype</label>
+  <input type="text" name="crop_type" id="crop_type" class="form-control" [(ngModel)]="crop_type"
+     >
+  <div class="d-flex my-2">
+      <input type="submit" value="Get all" class="btn btn-primary" (click)="Read('All')">
+      <input type="submit" [value]="'Get '+ crop_type" class="btn btn-primary mx-1" (click)="Read(crop_type)">
+  </div>
+  <p *ngIf="!(Results.length!=0 && GotResult)" class="text-danger">No Result to Show</p>
+</div>
+<table class="table w-50  mx-auto" *ngIf="Results.length!=0 && GotResult">
+  <thead class="thead-dark">
+      <tr>
+          <th scope="col">crop_type</th>
+          <th scope="col">market_demand</th>
+          <th scope="col">cost_management</th>
+          <th scope="col">climate</th>
+          <th scope="col">profit</th>
+          <th scope="col">Delete</th>
+          <th scope="col">Update</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let Data of Results">
+          <th scope="row">{{Data[0]}}</th>
+          <th>{{Data[1]}}</th>
+          <th>{{Data[2]}}</th>
+          <th>{{Data[3]}}</th>
+          <th>{{Data[4]}}</th>
+         
+          <td><input type="button" role="button" class="btn btn-danger" value="delete" (click)="Delete(Data[0])">
+          </td>
+          <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="Read1( Data[0])">
+                  Update
+              </button>
+          </td>
+      </tr>
+  </tbody>
+</table>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Updated Values</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <input type="text" name="crop_type" id="crop_type" placeholder="crop_type" class="form-control my-1" [(ngModel)]="UpdatedUser.crop_type">
+        <input type="text" name="market_demand" id="market_demand" placeholder="market_demand" class="form-control my-1" [(ngModel)]="UpdatedUser.market_demand">
+        <input type="text" name="cost_management" id="cost_management" placeholder="cost_management" class="form-control my-1" [(ngModel)]="UpdatedUser.cost_management">
+        <input type="text" name="climate" id="climate" placeholder="climate" class="form-control my-1" [(ngModel)]="UpdatedUser.climate">
+        <input type="text" name="profit" id="profit" placeholder="profit" class="form-control my-1" [(ngModel)]="UpdatedUser.profit">
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary"  data-bs-dismiss="modal" (click)="Update(crop_type,UpdatedUser)">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+         

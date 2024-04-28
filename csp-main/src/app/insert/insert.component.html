@@ -1,0 +1,110 @@
+<!--<p>insert works!</p>
+<form #insertForm="ngForm" (ngSubmit)="Insert(insertForm)">
+    <div class="factors-container">
+        <div class="message">
+    <div class="alert alert-success my-2" *ngIf="!(SuccessMsg =='')">{{SuccessMsg}}</div>
+    <div class="alert alert-danger my-2" *ngIf="!(ErrorMsg =='')">{{ErrorMsg}}</div>
+    </div>
+    <div class="para">
+    <label>Soil id: </label>
+    &nbsp;
+    &nbsp;
+    &nbsp;
+    <input type="text" name="soil_id" required   #soil_id="ngModel" ngModel>
+    <br/>
+    <span *ngIf="soil_id.invalid && soil_id.touched" style="color:red">Please Enter Soil id</span>
+    <br/>
+    <label>soil type: </label>
+    &nbsp;
+    &nbsp;
+    &nbsp;
+    <input type="text"  required  name="soil_type" #soil_type="ngModel" ngModel>
+    <br/>
+    <span *ngIf="soil_type.invalid && soil_type.touched" style="color:red">Please Enter soil type</span>
+    <br/>
+    <label>Soil ph:</label>
+    &nbsp;
+    &nbsp;
+    &nbsp;
+    <input type="text" name="soil_ph" ngModel>
+    <br/>
+
+    <br/>
+    <br/>
+    <label>Organic matter:</label>
+    &nbsp;
+    &nbsp;
+    &nbsp;
+    <input type="text" name="organic_matter" ngModel>
+    <br/>
+ 
+    <br/>
+    <br/>
+    <label>nitrogen:</label>
+    &nbsp;
+    &nbsp;
+    &nbsp;
+    <input type="text" name="nitrogen" ngModel>
+    <br/>
+    <br/>
+    <br/>
+    <label>phosphorus:</label>
+    &nbsp;
+    &nbsp;
+    &nbsp;
+    <input type="text" name="phosphorus" ngModel>
+    <br/>
+    <br/>
+    <br/>
+    <label>potassium:</label>
+    &nbsp;
+    &nbsp;
+    &nbsp;
+    <input type="text" name="potassium" ngModel>
+    <br/>
+    <br/>
+
+    <br/>
+    <div class="val">
+    <input type="submit" value="Insert" class="btn btn-success my-2"  [disabled]="insertForm.invalid">&nbsp;&nbsp;
+    </div>
+    </div>
+
+</div>-->
+
+<div class="form-group w-50 d-block mx-auto">
+    <label for="Id" class="form-label">soil_Id:</label>
+    <input type="text" name="soil_id" id="soil_id" class="form-control" [(ngModel)]="User.soil_id">
+
+    <label for="Id" class="form-label">soil_type</label>
+    <input type="soil_type" name="soil_type" id="soil_type" class="form-control" [(ngModel)]="User.soil_type">
+    <label for="Id" class="form-label">soil_ph</label>
+    <input type="text" name="soil_ph" id="soil_ph" class="form-control" [(ngModel)]="User.soil_ph">
+
+    <label for="Id" class="form-label">organic_matter</label>
+    <input type="text" name="organic_matter" id="organic_matter" class="form-control" [(ngModel)]="User.organic_matter">
+    <label for="Id" class="form-label">nitrogen</label>
+    <input type="text" name="nitrogen" id="nitrogen" class="form-control" [(ngModel)]="User.nitrogen">
+    <label for="Id" class="form-label">phosphorus</label>
+    <input type="text" name="phosphorus" id="phosphorus" class="form-control" [(ngModel)]="User.phosphorus">
+    <label for="Id" class="form-label">potassium</label>
+    <input type="text" name="potassium" id="potassium" class="form-control" [(ngModel)]="User.potassium">
+
+
+
+    <input type="submit" value="Insert" class="btn btn-success my-2" (click)="Insert()">
+
+
+
+    <div class="alert alert-success my-2" *ngIf="!(SuccessMsg =='')">{{SuccessMsg}}</div>
+    <div class="alert alert-danger my-2" *ngIf="!(ErrorMsg =='')">{{ErrorMsg}}</div>
+
+    <!-- *ngIf="!(SuccessMsg =='')" the line Says that if the SuccessMsg variable is empty the hide this 
+        if the content. If not show this div....
+
+        
+        So SuccessMsg == '' ==> Gives true if the variable is fitted to Content at the line
+        this.Success = Data.Message in the ts file
+        -->
+
+</div>

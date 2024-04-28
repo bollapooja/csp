@@ -1,0 +1,31 @@
+
+
+
+.sub{
+    height: 40vh;
+    width: 40vw;
+    margin-left: 400px;
+    margin-bottom: 20px;
+    padding: 40px;
+    
+}
+.container{
+    background-image: url("https://images.pexels.com/photos/1058401/pexels-photo-1058401.jpeg?cs=srgb&dl=pexels-deneen-lt-1058401.jpg&fm=jpg");
+    background-repeat: no-repeat;
+    height: 150vh;
+    width: 100vw;
+    background-size: cover;
+    
+}
+.para{
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    color:black;
+    padding-right:10px ;
+    padding: 10px;
+
+
+}
+.head{
+     font-size:40px;
+}

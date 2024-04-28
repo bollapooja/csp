@@ -1,0 +1,149 @@
+<p>read1 works!</p>
+<!--
+  <div class="par">
+    <input type="text" [(ngModel)]="User.croprotation" name="croprotation" #croprotation="ngModel" required ngModel>&nbsp;
+    <br/>
+    <button type="submit"  class="btn btn-success my-2" (click)="Read()" >Read</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </div>
+    <div *ngIf="canShowData">
+    
+        <hr> 
+        
+        <table >
+            <tr>
+              <th colspan="10" style="text-align: center;"><h4>Soil id with soil types</h4></th>
+            </tr>
+            <tr>
+              <td colspan="4">croprotation</td>
+              <td colspan="6">{{User.croprotation}}</td>
+            </tr>
+            <tr>
+              <td colspan="4">rainfalls</td>
+              <td colspan="6">{{User.rainfalls}}</td>
+            </tr>
+            <tr>
+                <td colspan="4">region</td>
+                <td colspan="6">{{User.region}}</td>
+              </tr>
+              <tr>
+                <td colspan="4">temperature</td>
+                <td colspan="6">{{User.temperature}}</td>
+              </tr>
+              
+          </table>
+
+        
+        <div class="d-block mx-auto w-50">
+          <label for="id">id</label>
+          <input type="text" name="id" id="id" class="form-control" [(ngModel)]="Roll"
+              placeholder="">
+          <div class="d-flex my-2">
+              <input type="submit" value="Get all" class="btn btn-primary" (click)="Read('All')">
+              <input type="submit" [value]="'Get '+ Roll" class="btn btn-primary mx-1" (click)="Read(Roll)">
+          </div>
+          <p *ngIf="!(Results.length!=0 && GotResult)" class="text-danger">No Result to Show</p>
+        </div>
+        <table class="table w-50  mx-auto" *ngIf="Results.length!=0 && GotResult">
+          <thead class="thead-dark">
+              <tr>
+                  <th scope="col">croprotation</th>
+                  <th scope="col">rainfalls</th>
+                  <th scope="col">region</th>
+                  <th scope="col">temperature</th>
+                  <th scope="col">delete</th>
+                  <th scope="col">update</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let Data of Results">
+                  <th scope="row">{{Data[0]}}</th>
+                  <td>{{Data[1]}}</td>
+                  <td>{{Data[2]}}</td>
+                  <td>{{Data[3]}}</td>
+                  <td><input type="button" role="button" class="btn btn-danger" value="delete" (click)="Delete(Data[0])">
+                  </td>
+                  <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="Roll = Data[0]">
+                          Update
+                      </button>
+                  </td>
+              </tr>
+          </tbody>
+        </table>
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Updated Values</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <input type="text" name="name" id="name" placeholder="name" class="form-control my-1" [(ngModel)]="UpdatedUser.croprotation">
+                <input type="text" name="id" id="id" placeholder="id" class="form-control my-1" [(ngModel)]="UpdatedUser.rainfalls">
+                <input type="text" name="id" id="id" placeholder="id" class="form-control my-1" [(ngModel)]="UpdatedUser.region">
+                <input type="text" name="id" id="id" placeholder="id" class="form-control my-1" [(ngModel)]="UpdatedUser.temperature">
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary"  data-bs-dismiss="modal" (click)="Update(Roll,UpdatedUser)">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>-->
+    
+         
+        
+<div class="d-block mx-auto w-50">
+  <label for="croprotation">croprotation</label>
+  <input type="text" name="croprotation" id="croprotation" class="form-control" [(ngModel)]="croprotation"
+     >
+  <div class="d-flex my-2">
+      <input type="submit" value="Get all" class="btn btn-primary" (click)="Read('All')">
+      <input type="submit" [value]="'Get '+ croprotation" class="btn btn-primary mx-1" (click)="Read(croprotation)">
+  </div>
+  <p *ngIf="!(Results.length!=0 && GotResult)" class="text-danger">No Result to Show</p>
+</div>
+<table class="table w-50  mx-auto" *ngIf="Results.length!=0 && GotResult">
+  <thead class="thead-dark">
+      <tr>
+          <th scope="col">croprotation</th>
+          <th scope="col">rainfalls</th>
+          <th scope="col">region</th>
+          <th scope="col">temperature</th>
+          <th scope="col">Delete</th>
+          <th scope="col">Update</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let Data of Results">
+          <th scope="row">{{Data[0]}}</th>
+          <th>{{Data[1]}}</th>
+          <th>{{Data[2]}}</th>
+          <th>{{Data[3]}}</th>
+          <td><input type="button" role="button" class="btn btn-danger" value="delete" (click)="Delete(Data[0])">
+          </td>
+          <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="Read1( Data[0])">
+                  Update
+              </button>
+          </td>
+      </tr>
+  </tbody>
+</table>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Updated Values</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <input type="text" name="croprotation" id="croprotation" placeholder="croprotation" class="form-control my-1" [(ngModel)]="UpdatedUser.croprotation">
+        <input type="text" name="rainfalls" id="rainfalls" placeholder="rainfalls" class="form-control my-1" [(ngModel)]="UpdatedUser.rainfalls">
+        <input type="text" name="region" id="region" placeholder="region" class="form-control my-1" [(ngModel)]="UpdatedUser.region">
+        <input type="text" name="temperature" id="temperature" placeholder="temperature" class="form-control my-1" [(ngModel)]="UpdatedUser.temperature">
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary"  data-bs-dismiss="modal" (click)="Update(croprotation,UpdatedUser)">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>

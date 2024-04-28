@@ -1,0 +1,540 @@
+
+<p>read works!</p>
+<!--<div class="par">
+    <input type="text" [(ngModel)]="User.soil_id" name="soil_id" #disease="ngModel" required ngModel>&nbsp;
+    <br/>
+    <button type="submit"  class="btn btn-success my-2" (click)="Read()" >Get</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <button type="submit"  class="btn btn-success my-2" (click)="Read()" >Getall</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+  </div>
+    <div *ngIf="canShowData">
+    
+        <hr> 
+        
+        <table >
+            <tr>
+              <th colspan="10" style="text-align: center;"><h4>Soil id with soil types</h4></th>
+            </tr>
+            <tr>
+              <td colspan="4">soil_id</td>
+              <td colspan="6">{{User.soil_id}}</td>
+            </tr>
+            <tr>
+              <td colspan="4">soil_type</td>
+              <td colspan="6">{{User.soil_type}}</td>
+            </tr>
+            <tr>
+                <td colspan="4">soil_ph</td>
+                <td colspan="6">{{User.soil_ph}}</td>
+              </tr>
+              <tr>
+                <td colspan="4">organic_matter</td>
+                <td colspan="6">{{User.organic_matter}}</td>
+              </tr>
+              <tr>
+                <td colspan="4">nitrogen</td>
+                <td colspan="6">{{User.nitrogen}}</td>
+              </tr>
+              <tr>
+                <td colspan="4">phosphorus</td>
+                <td colspan="6">{{User.phosphorus}}</td>
+              </tr>
+              <tr>
+                <td colspan="4">potassium</td>
+                <td colspan="6">{{User.potassium}}</td>
+              </tr>
+          </table>
+
+
+
+
+
+
+
+
+
+
+
+<div class="d-block mx-auto w-50">
+            <label for="soil_id">Soil id:</label>
+            <input type="text" name="soil_id" id="soil_id" class="form-control a" [(ngModel)]="soil_id" placeholder="">
+            <div class="d-flex my-2">
+              <input type="submit" value="Get all" class="btn btn-primary" (click)="Read(0)">
+              <input type="submit" [value]="'Get ' + soil_id" class="btn btn-primary mx-1" (click)="Read(soil_id)">
+            </div>
+            <p *ngIf="!(Results.length != 0 && GotResult)" class="text-danger">No Result to Show</p>
+          </div>
+          
+          <table class="w-75 mx-auto" *ngIf="Results.length != 0 && GotResult">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Soil id</th>
+                <th scope="col">Soil type</th>
+                <th scope="col">Soil ph</th>
+                <th scope="col">Organic matter</th>
+                <th scope="col">Nitrogen</th>
+                <th scope="col">Phosphorus</th>
+                <th scope="col">Potassium</th>
+                <th scope="col">Delete</th>
+                <th scope="col">Update</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let Data of Results">
+               
+                  <input type="button" role="button" class="btn btn-danger" value="delete" (click)="Delete(Data.soil_id)">
+                </td>
+                <td>
+                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="Read(Data.soil_id)">
+                    Update
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+          <div class="d-block mx-auto w-50">
+            <label for="soil_id">Soil id:</label>
+            <input type="text" name="soil_id" id="soil_id" class="form-control" [(ngModel)]="soil_id" placeholder="">
+            <div class="d-flex my-2">
+                <input type="submit" value="Get all" class="btn btn-primary" (click)="Read('')">
+                <input type="submit" [value]="'Get '+ soil_id" class="btn btn-primary mx-1" (click)="Read('')">
+            </div>
+            <p *ngIf="!(Results.length!=0 && GotResult)" class="text-danger">No Result to Show</p>
+          </div>
+          <table class="w-75  mx-auto" *ngIf="Results.length!=0 && GotResult">
+            <thead class="thead-dark">
+                <tr>
+                  <th scope="col">Soil id</th>
+                  <th scope="col">Soil type</th>
+                  <th scope="col">Soil ph</th>
+                  <th scope="col">Organic matter</th>
+                  <th scope="col">Nitrogen</th>
+                  <th scope="col">Phosphorus</th>
+                  <th scope="col">Potassium</th>
+                  <th scope="col">delete</th>
+                  <th scope="col">update</th>
+                
+                  
+                </tr>
+            </thead>
+            
+            <tbody>
+              <tr *ngFor="let Data of Results">
+                  <th scope="row">{{Data[0]}}</th>
+                  <td>{{Data[1]}}</td>
+                  <td>{{Data[2]}}</td>
+                  <td>{{Data[3]}}</td>
+                  <td>{{Data[4]}}</td>
+                  <td>{{Data[5]}}</td>
+                  <td>{{Data[6]}}</td>
+    
+      
+                  <td><input type="button" role="button" class="btn btn-danger" value="delete" (click)="Delete(Data[0])">
+                  </td>
+                  <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="Read(Data[0])">
+                          Update
+                      </button>
+                  </td>
+      
+              </tr>
+          </tbody>
+            
+          </table>
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="exampleModalLabel">Updated Values</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <input type="text" name="soil_id" id="soil_id" placeholder="soil_id" class="form-control my-1" [(ngModel)]="UpdatedUser.soil_id">
+                  <input type="text" name="soil_type" id="soil_type" placeholder="soil_type" class="form-control my-1" [(ngModel)]="UpdatedUser.soil_type">
+                  <input type="text" name="soil_ph" id="soil_ph" placeholder="soil_ph" class="form-control my-1" [(ngModel)]="UpdatedUser.soil_ph">
+                  <input type="text" name="organic_matter" id="organic_matter" placeholder="organic_matter" class="form-control my-1" [(ngModel)]="UpdatedUser.organic_matter">
+                  <input type="text" name="nitrogen" id="nitrogen" placeholder="nitrogen" class="form-control my-1" [(ngModel)]="UpdatedUser.nitrogen">
+                  <input type="text" name="phosphorus" id="phosphorus" placeholder="phosphorus" class="form-control my-1" [(ngModel)]="UpdatedUser.phosphorus">
+                  <input type="text" name="potassium" id="potassium" placeholder="potassium" class="form-control my-1" [(ngModel)]="UpdatedUser.potassium">
+      
+        
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-primary"  data-bs-dismiss="modal" (click)="Update(soil_id,UpdatedUser)">Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+          <div class="d-block mx-auto w-50">
+            <label for="id">id</label>
+            <input type="text" name="id" id="id" class="form-control" [(ngModel)]="Roll" placeholder="">
+            <div class="d-flex my-2">
+                <input type="submit" value="Get all" class="btn btn-primary" (click)="Read('All')">
+                <input type="submit" [value]="'Get '+ Roll" class="btn btn-primary mx-1" (click)="Read(Roll)">
+            </div>
+            <p *ngIf="!(Results.length!=0 && GotResult)" class="text-danger">No Result to Show</p>
+          </div>
+          <table class="table w-50  mx-auto" *ngIf="Results.length!=0 && GotResult">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">soil_id</th>
+                    <th scope="col">soil_type</th>
+                    <th scope="col">soil_ph</th>
+                    <th scope="col">organic_matter</th>
+                    <th scope="col">nitrogen</th>
+                    <th scope="col">phosphorus</th>
+                    <th scope="col">potassium</th>
+                    <th scope="col">delete</th>
+                    <th scope="col">update</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let Data of Results">
+                    <th scope="row">{{Data[0]}}</th>
+                    <td>{{Data[1]}}</td>
+                    <td>{{Data[2]}}</td>
+                    <td>{{Data[3]}}</td>
+                    <td>{{Data[4]}}</td>
+                    <td>{{Data[5]}}</td>
+                    <td>{{Data[6]}}</td>
+                    
+                    <td><input type="button" role="button" class="btn btn-danger" value="delete" (click)="Delete(Data[0])">
+                    </td>
+                    <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="Roll = Data[0]">
+                            Update
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+          </table>
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="exampleModalLabel">Updated Values</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <input type="text" name="name" id="name" placeholder="name" class="form-control my-1" [(ngModel)]="UpdatedUser.soil_id">
+                  <input type="text" name="id" id="id" placeholder="id" class="form-control my-1" [(ngModel)]="UpdatedUser.soil_type">
+                  <input type="text" name="id" id="id" placeholder="id" class="form-control my-1" [(ngModel)]="UpdatedUser.soil_ph">
+                  <input type="text" name="id" id="id" placeholder="id" class="form-control my-1" [(ngModel)]="UpdatedUser.organic_matter">
+                  <input type="text" name="id" id="id" placeholder="id" class="form-control my-1" [(ngModel)]="UpdatedUser.nitrogen">
+                  <input type="text" name="id" id="id" placeholder="id" class="form-control my-1" [(ngModel)]="UpdatedUser.phosphorus">
+                  <input type="text" name="id" id="id" placeholder="id" class="form-control my-1" [(ngModel)]="UpdatedUser.potassium">
+                
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-primary"  data-bs-dismiss="modal" (click)="Update(Roll,UpdatedUser)">Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+          
+          <div class="d-block mx-auto w-50">
+            <label for="id">id</label>
+            <input type="text" name="id" id="id" class="form-control" [(ngModel)]="Roll" placeholder="">
+            <div class="d-flex my-2">
+                <input type="submit" value="Get all" class="btn btn-primary" (click)="Read('All')">
+                <input type="submit" [value]="'Get ' + Roll" class="btn btn-primary mx-1" (click)="Read(Roll)">
+            </div>
+            <p *ngIf="!(Results.length!=0 && GotResult)" class="text-danger">No Result to Show</p>
+          </div>
+          <table class="table w-50 mx-auto" *ngIf="Results.length!=0 && GotResult">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">soil_id</th>
+                    <th scope="col">soil_type</th>
+                    <th scope="col">soil_ph</th>
+                    <th scope="col">organic_matter</th>
+                    <th scope="col">nitrogen</th>
+                    <th scope="col">phosphorus</th>
+                    <th scope="col">potassium</th>
+                    <th scope="col">delete</th>
+                    <th scope="col">update</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let Data of Results">
+                    <th scope="row">{{Data[0]}}</th>
+                    <td>{{Data[1]}}</td>
+                    <td>{{Data[2]}}</td>
+                    <td>{{Data[3]}}</td>
+                    <td>{{Data[4]}}</td>
+                    <td>{{Data[5]}}</td>
+                    <td>{{Data[6]}}</td>
+                    
+                    <td><input type="button" role="button" class="btn btn-danger" value="delete" (click)="Delete(Data[0])">
+                    </td>
+                    <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="Roll = Data[0]">
+                            Update
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+          </table>
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="exampleModalLabel">Updated Values</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <input type="text" name="name" id="name" placeholder="name" class="form-control my-1" [(ngModel)]="UpdatedUser.soil_id">
+                  <input type="text" name="id" id="id" placeholder="id" class="form-control my-1" [(ngModel)]="UpdatedUser.soil_type">
+                  <input type="text" name="id" id="id" placeholder="id" class="form-control my-1" [(ngModel)]="UpdatedUser.soil_ph">
+                  <input type="text" name="id" id="id" placeholder="id" class="form-control my-1" [(ngModel)]="UpdatedUser.organic_matter">
+                  <input type="text" name="id" id="id" placeholder="id" class="form-control my-1" [(ngModel)]="UpdatedUser.nitrogen">
+                  <input type="text" name="id" id="id" placeholder="id" class="form-control my-1" [(ngModel)]="UpdatedUser.phosphorus">
+                  <input type="text" name="id" id="id" placeholder="id" class="form-control my-1" [(ngModel)]="UpdatedUser.potassium">
+                
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-primary"  data-bs-dismiss="modal" (click)="Update(Roll, UpdatedUser)">Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
+     
+
+
+          
+<div class="d-block mx-auto w-50">
+  <label for="soil_type">soil_type</label>
+  <input type="text" name="soil_type" id="soil_type" class="form-control" [(ngModel)]="soil_type"
+     >
+  <div class="d-flex my-2">
+    <input type="submit" value="Get all" class="btn btn-primary" (click)="Read('All')">
+    <input type="submit" [value]="'Get ' + soil_type" class="btn btn-primary mx-1" (click)="Read(soil_type)">
+    
+  </div>
+  <p *ngIf="!(Results.length!=0 && GotResult)" class="text-danger">No Result to Show</p>
+</div>
+<table class="table w-50  mx-auto" *ngIf="Results.length!=0 && GotResult">
+  <thead class="thead-dark">
+      <tr>
+          <th scope="col">soil_id</th>
+          <th scope="col">soil_type</th>
+          <th scope="col">soil_ph</th>
+          <th scope="col">organic_matter</th>
+          <th scope="col">nitrogen</th>
+          <th scope="col">phosphorus</th>
+          <th scope="col">potassium</th>
+          <th scope="col">Delete</th>
+          <th scope="col">Update</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let Data of Results">
+          <th scope="row">{{Data[0]}}</th>
+          <th>{{Data[1]}}</th>
+          <th>{{Data[2]}}</th>
+          <th>{{Data[3]}}</th>
+          <th>{{Data[4]}}</th>
+          <th>{{Data[5]}}</th>
+          <th>{{Data[6]}}</th>
+          <td><input type="button" role="button" class="btn btn-danger" value="delete" (click)="Delete(Data[0])">
+          </td>
+          <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="Read1( Data[0])">
+                  Update
+              </button>
+          </td>
+      </tr>
+  </tbody>
+</table>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Updated Values</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <input type="text" name="soil_id" id="soil_id" placeholder="soil_id" class="form-control my-1" [(ngModel)]="UpdatedUser.soil_id">
+        <input type="text" name="soil_type" id="soil_type" placeholder="soil_type" class="form-control my-1" [(ngModel)]="UpdatedUser.soil_type">
+        <input type="text" name="soil_ph" id="soil_ph" placeholder="soil_ph" class="form-control my-1" [(ngModel)]="UpdatedUser.soil_ph">
+        <input type="text" name="organic_matter" id="organic_matter" placeholder="organic_matter" class="form-control my-1" [(ngModel)]="UpdatedUser.organic_matter">
+        <input type="text" name="nitrogen" id="nitrogen" placeholder="nitrogen" class="form-control my-1" [(ngModel)]="UpdatedUser.nitrogen">
+        <input type="text" name="phosphorus" id="phosphorus" placeholder="phosphorus" class="form-control my-1" [(ngModel)]="UpdatedUser.phosphorus">
+        <input type="text" name="potassium" id="potassium" placeholder="potassium" class="form-control my-1" [(ngModel)]="UpdatedUser.potassium">
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary"  data-bs-dismiss="modal" (click)="Update(soil_type,UpdatedUser)">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="d-block mx-auto w-50">
+    <label for="soil_id">soil_id</label>
+    <input type="text" name="soil_id" id="soil_id" class="form-control" [(ngModel)]="soil_id"
+       >
+    <div class="d-flex my-2">
+      <input type="submit" value="Get all" class="btn btn-primary" (click)="Read('All')">
+      <input type="submit" [value]="'Get ' + soil_id" class="btn btn-primary mx-1" (click)="Read(+soil_id)">
+      
+    </div>
+   
+    <p *ngIf="Results.length === 0 && GotResult" class="text-danger">No Result to Show</p>
+
+</div>
+<table class="table w-50  mx-auto" *ngIf="Results.length!=0 && GotResult">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">soil_id</th>
+            <th scope="col">soil_type</th>
+            <th scope="col">soil_ph</th>
+            <th scope="col">organic_matter</th>
+            <th scope="col">nitrogen</th>
+            <th scope="col">phosphorus</th>
+            <th scope="col">potassium</th>
+            <th scope="col">Delete</th>
+            <th scope="col">Update</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let Data of Results">
+            <th scope="row">{{Data[0]}}</th>
+            <th>{{Data[1]}}</th>
+            <th>{{Data[2]}}</th>
+            <th>{{Data[3]}}</th>
+            <th>{{Data[4]}}</th>
+            <th>{{Data[5]}}</th>
+            <th>{{Data[6]}}</th>
+            <td><input type="button" role="button" class="btn btn-danger" value="delete" (click)="Delete(Data[0])">
+            </td>
+            <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="Read1( Data[0])">
+                    Update
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Updated Values</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <input type="text" name="soil_id" id="soil_id" placeholder="soil_id" class="form-control my-1" [(ngModel)]="UpdatedUser.soil_id">
+          <input type="text" name="soil_type" id="soil_type" placeholder="soil_type" class="form-control my-1" [(ngModel)]="UpdatedUser.soil_type">
+          <input type="text" name="soil_ph" id="soil_ph" placeholder="soil_ph" class="form-control my-1" [(ngModel)]="UpdatedUser.soil_ph">
+          <input type="text" name="organic_matter" id="organic_matter" placeholder="organic_matter" class="form-control my-1" [(ngModel)]="UpdatedUser.organic_matter">
+          <input type="text" name="nitrogen" id="nitrogen" placeholder="nitrogen" class="form-control my-1" [(ngModel)]="UpdatedUser.nitrogen">
+          <input type="text" name="phosphorus" id="phosphorus" placeholder="phosphorus" class="form-control my-1" [(ngModel)]="UpdatedUser.phosphorus">
+          <input type="text" name="potassium" id="potassium" placeholder="potassium" class="form-control my-1" [(ngModel)]="UpdatedUser.potassium">
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary"  data-bs-dismiss="modal" (click)="Update(soil_id,UpdatedUser)">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+-->
+<div class="d-block mx-auto w-50">
+  <label for="soil_id">soil_id</label>
+  <input type="text" name="soil_id" id="soil_id" class="form-control" [(ngModel)]="soil_id"
+     >
+  <div class="d-flex my-2">
+      <input type="submit" value="Get all" class="btn btn-primary" (click)="Read('All')">
+      <input type="submit" [value]="'Get '+ soil_id" class="btn btn-primary mx-1" (click)="Read(soil_id)">
+  </div>
+  <p *ngIf="!(Results.length!=0 && GotResult)" class="text-danger">No Result to Show</p>
+</div>
+<table class="table w-50  mx-auto" *ngIf="Results.length!=0 && GotResult">
+  <thead class="thead-dark">
+      <tr>
+          <th scope="col">soil_id</th>
+          <th scope="col">soil_type</th>
+          <th scope="col">soil_ph</th>
+          <th scope="col">organic_matter</th>
+          <th scope="col">nitrogen</th>
+          <th scope="col">phosphorus</th>
+          <th scope="col">potassium</th>
+          <th scope="col">Delete</th>
+          <th scope="col">Update</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let Data of Results">
+          <th scope="row">{{Data[0]}}</th>
+          <th>{{Data[1]}}</th>
+          <th>{{Data[2]}}</th>
+          <th>{{Data[3]}}</th>
+          <th>{{Data[4]}}</th>
+          <th>{{Data[5]}}</th>
+          <th>{{Data[6]}}</th>
+          <td><input type="button" role="button" class="btn btn-danger" value="delete" (click)="Delete(Data[0])">
+          </td>
+          <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="Read1( Data[0])">
+                  Update
+              </button>
+          </td>
+      </tr>
+  </tbody>
+</table>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Updated Values</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <input type="text" name="soil_id" id="soil_id" placeholder="soil_id" class="form-control my-1" [(ngModel)]="UpdatedUser.soil_id">
+        <input type="text" name="soil_type" id="soil_type" placeholder="soil_type" class="form-control my-1" [(ngModel)]="UpdatedUser.soil_type">
+        <input type="text" name="soil_ph" id="soil_ph" placeholder="soil_ph" class="form-control my-1" [(ngModel)]="UpdatedUser.soil_ph">
+        <input type="text" name="organic_matter" id="organic_matter" placeholder="organic_matter" class="form-control my-1" [(ngModel)]="UpdatedUser.organic_matter">
+        <input type="text" name="nitrogen" id="nitrogen" placeholder="nitrogen" class="form-control my-1" [(ngModel)]="UpdatedUser.nitrogen">
+        <input type="text" name="phosphorus" id="phosphorus" placeholder="phosphorus" class="form-control my-1" [(ngModel)]="UpdatedUser.phosphorus">
+        <input type="text" name="potassium" id="potassium" placeholder="potassium" class="form-control my-1" [(ngModel)]="UpdatedUser.potassium">
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary"  data-bs-dismiss="modal" (click)="Update(soil_id,UpdatedUser)">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>

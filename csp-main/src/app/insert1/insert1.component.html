@@ -1,0 +1,43 @@
+<p>insert1 works!</p>
+<form #insertForm="ngForm" (ngSubmit)="Insert(insertForm)">
+    <div class="message">
+<div class="alert alert-success my-2" *ngIf="!(SuccessMsg =='')">{{SuccessMsg}}</div>
+<div class="alert alert-danger my-2" *ngIf="!(ErrorMsg =='')">{{ErrorMsg}}</div>
+</div>
+<div class="para">
+<label>croprotation </label>
+&nbsp;
+&nbsp;
+<input type="text" name="croprotation" required   #croprotation="ngModel" ngModel>
+<br/>
+<span *ngIf="croprotation.invalid && croprotation.touched" style="color:red">Please Enter croprotation</span>
+<br/>
+&nbsp;
+&nbsp;
+<label>rainfalls </label>
+<input type="text"  required  name="rainfalls" #rainfalls="ngModel" ngModel>
+<br/>
+&nbsp;
+&nbsp;
+<span *ngIf="rainfalls.invalid && rainfalls.touched" style="color:red">Please Enter rainfalls</span>
+<br/>
+<label>region </label>
+<input type="text"  required  name="region" #region="ngModel" ngModel>
+<br/>
+&nbsp;
+&nbsp;
+<span *ngIf="region.invalid && region.touched" style="color:red">Please Enter region</span>
+<br/>
+<label>temperature </label>
+<input type="text"  required  name="temperature" #temperature="ngModel" ngModel>
+<br/>
+&nbsp;
+&nbsp;
+<span *ngIf="temperature.invalid && temperature.touched" style="color:red">Please Enter temperateru</span>
+<br/>
+
+<div class="val">
+<input type="submit" value="Insert" class="btn btn-success my-2"  [disabled]="insertForm.invalid">&nbsp;&nbsp;
+</div>
+</div>
+</form>

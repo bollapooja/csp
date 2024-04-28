@@ -1,0 +1,28 @@
+<p>update1 works!</p>
+<form>
+    <br/>
+    <div class="message">
+        <div class="alert alert-success my-2" *ngIf="!(SuccessMsg =='')">{{SuccessMsg}}</div>
+        <div class="alert alert-danger my-2" *ngIf="!(ErrorMsg =='')">{{ErrorMsg}}</div>
+        </div>
+    <div class="para">
+    <input type="text"  name="croprotation" [(ngModel)]="User.croprotation">&nbsp;
+    <button type="submit" value="Read" class="btn btn-success my-2" (click)="Read()">Read</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <hr> 
+    <div *ngIf="canShowData">
+    <label>croprotation</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="text" name="croprotation"  [(ngModel)]="User.croprotation"><br/><br/>
+    <label>rainfalls</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="text" name="rainfalls"  [(ngModel)]="User.rainfalls"><br/><br/>
+    <label>region</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="text" name="region"  [(ngModel)]="User.region"><br/><br/>
+    <label>temperature</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="text" name="temperature"  [(ngModel)]="User.temperature"><br/><br/>
+    
+
+    <button type="submit" value="Save" class="btn btn-success my-2" (click)="Update()">Update</button>&nbsp;&nbsp;
+    <button type="cancel" value="Save" class="btn btn-success my-2">Cancel</button>
+    
+    </div>
+    </div>
+    </form>

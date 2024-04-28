@@ -1,0 +1,49 @@
+.sub{
+    height: 50vh;
+    width: 40vw;
+    padding-left:500px;
+    padding-top:40px;
+    padding-right:600px;
+
+}
+.container{
+background-image: url("https://scx1.b-cdn.net/csz/news/800a/2022/farming-practices-good.jpg");
+    background-repeat: no-repeat;
+    height: 150vh;
+    width: 100vw;
+    background-size: cover;
+}
+.para{
+    padding-left: 40px;
+    padding-top: 40px;
+    font-size: 45px;
+    color:cyan;
+   
+}
+.head{
+    padding-top: 30px;
+    padding-left:10px ;
+    font-size: x-large;
+    color:azure;
+}
+.sub1{
+   
+    padding-top:50px;
+    padding-left:50px;
+}
+
+#flex{
+    display: flex;
+}
+.con{
+    width:50vw;
+}
+.sub2{
+    padding-left:40px;
+}
+
+
+
+
+
+

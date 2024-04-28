@@ -1,0 +1,33 @@
+.sub1{
+    padding-left:40px;
+    padding-top: 40px;
+    font-family: 'Times New Roman';
+    font-size:x-large;
+    color: white;
+}
+#flex{
+    display: flex;
+}
+.sub2{
+    padding-left:40px;
+    padding-top: 40px;
+    font-size: 40px;
+    color: crimson;
+}
+.sub3{
+    padding-top:20px;
+    padding-left:40px;
+    font-family: 'Times New Roman';
+    font-size:x-large;
+}
+.sub4{
+    padding-left: 40px;
+    padding-top:40px;
+}
+.sub5{
+    padding-left:40px;
+    padding-top:30px;
+    font-size: 40px;
+    color: crimson;
+
+}

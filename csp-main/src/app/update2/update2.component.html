@@ -1,0 +1,29 @@
+<p>update2 works!</p>
+
+<form>
+    <br/>
+    <div class="message">
+        <div class="alert alert-success my-2" *ngIf="!(SuccessMsg =='')">{{SuccessMsg}}</div>
+        <div class="alert alert-danger my-2" *ngIf="!(ErrorMsg =='')">{{ErrorMsg}}</div>
+        </div>
+    <div class="para">
+    <input type="text"  name="crop_type" [(ngModel)]="User.crop_type">&nbsp;
+    <button type="submit" value="Read" class="btn btn-success my-2" (click)="Read()">Read</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </div>
+    <div class="data">
+    <div *ngIf="canShowData">
+    <label>crop_type</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="text" name="crop_type"  [(ngModel)]="User.crop_type"><br/><br/>
+    <label>market_demand</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="text" name="market_demand"  [(ngModel)]="User.market_demand"><br/><br/>
+    <label>cost_management</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="text" name="cost_management"  [(ngModel)]="User.cost_management"><br/><br/>
+    <label>climate</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="text" name="climate"  [(ngModel)]="User.climate"><br/><br/>
+    <label>profit</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="text" name="profit"  [(ngModel)]="User.profit"><br/><br/>
+    <button type="submit" value="Save" class="btn btn-success my-2" (click)="Update()">Update</button>&nbsp;&nbsp;
+    <button type="cancel" value="Save" class="btn btn-success my-2">Cancel</button>
+    </div>
+    </div>
+    </form>

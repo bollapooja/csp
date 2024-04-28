@@ -1,0 +1,14 @@
+.para{
+    text-align: center;
+   
+}
+.factors-container {
+    width: 80%;
+    margin: 0 auto;
+    background-color: rgba(0,0,0,0.6);
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+    font-size: medium;
+  }
+  

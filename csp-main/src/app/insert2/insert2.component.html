@@ -1,0 +1,44 @@
+<p>insert2 works!</p>
+
+<form #insertForm="ngForm" (ngSubmit)="Insert(insertForm)">
+    <div class="message">
+<div class="alert alert-success my-2" *ngIf="!(SuccessMsg =='')">{{SuccessMsg}}</div>
+<div class="alert alert-danger my-2" *ngIf="!(ErrorMsg =='')">{{ErrorMsg}}</div>
+</div>
+<div class="para">
+<label>crop type</label>
+&nbsp;
+&nbsp;
+<input type="text" name="crop_type" required   #crop_type="ngModel" ngModel>
+<br/>
+<span *ngIf="crop_type.invalid && crop_type.touched" style="color:red">Please Enter croprotation</span>
+<br/>
+&nbsp;
+&nbsp;
+&nbsp;
+<label>market demand </label>
+<input type="text"  required  name="market_demand" #market_demand="ngModel" ngModel>
+<br/>
+<span *ngIf="market_demand.invalid && market_demand.touched" style="color:red">Please Enter demand in market</span>
+<br/>
+<label>cost management </label>
+<input type="text"  required  name="cost_management" #cost_management="ngModel" ngModel>
+<br/>
+<span *ngIf="cost_management.invalid && cost_management.touched" style="color:red">Please Enter cost</span>
+<br/>
+<label>climate</label>
+<input type="text"  required  name="climate" #climate="ngModel" ngModel>
+<br/>
+<span *ngIf="climate.invalid && climate.touched" style="color:red">Please Enter temperature</span>
+<br/>
+<label>profit</label>
+<input type="text"  required  name="profit" #profit="ngModel" ngModel>
+<br/>
+<span *ngIf="profit.invalid && profit.touched" style="color:red">Please Enter profit</span>
+<br/>
+
+<div class="val">
+<input type="submit" value="Insert" class="btn btn-success my-2"  [disabled]="insertForm.invalid">&nbsp;&nbsp;
+</div>
+</div>
+</form>

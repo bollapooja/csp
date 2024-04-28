@@ -1,0 +1,29 @@
+table, th, td {
+    border: 4px solid rgb(62, 125, 241);
+    border-collapse: collapse;
+    font-weight: 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 30px;
+    color: black;
+  }
+  table{
+    margin-left:400px;
+  }
+  td{
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-top: 5px;  
+    padding-bottom: 5px;
+  }
+  .par{
+    align-items:center;
+    text-align: center;
+  }
+  .factors-container {
+    width: 80%;
+    margin: 0 auto;
+    background-color: rgba(0,0,0,0.6);
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+  }

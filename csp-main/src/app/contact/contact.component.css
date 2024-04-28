@@ -1,0 +1,41 @@
+
+
+table {
+    width: 0%;
+    border-collapse: collapse;
+    margin-top: 0px;
+    position: absolute;
+    top: 100px;
+    right: 20;
+    margin-left: auto;
+    margin-right: 0;
+    left: 70%; /* Set the table to start from the center */
+    transform: translateX(-50%); /*
+    vertical-align: baseline;
+}
+table {
+    width: 0%;
+    border-collapse: collapse;
+    margin-top: 0px;
+    position: absolute;
+    top: 50px;
+    Move the table back by 50% of its own width */
+    vertical-align: baseline;
+}
+
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    height:50px;
+    vertical-align: bottom;
+    border-top: 5px solid black;
+   
+}
+td{
+    color: black;
+}
+
+th {
+    background-color: rgb(122, 188, 56);
+}
